@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title> JavaScript Guessing Game </title>
+</head>
+
+<body>
+  <h1>Guess the Number!</h1>
+  <p>I am thinking of a number between 1 and 100. Can you guess what it is?</p>
+
+  <form>
+    <label for="guess">My Guess</label>
+    <input type="number" id="guess">
+    <input type="submit" id="submitGuess" value="Check My Guess">
+  </form>
+
+  <p id="feedback"></p>
+
+  <script>
+    const randomNumber = Math.floor(Math.random() * 100) + 1
+    console.log('Random Number', randomNumber)
+
+    function checkGuess() {
+      let myGuess = guess.value
+      if (myGuess === randomNumber) {
+        feedback.textContent = "You got it right!"
+      } else if (myGuess > randomNumber) {
+        feedback.textContent = "Your guess was " + myGuess + ". That's too high. Try Again!"
+      } else if (myGuess < randomNumber) {
+       feedback.textContent = "Your guess was " + myGuess + ". That's too low. Try Again!"
+     }
+   }
+   submitGuess.addEventListener('click', checkGuess)
+ </script>
+
+</body>
+
+</html>
